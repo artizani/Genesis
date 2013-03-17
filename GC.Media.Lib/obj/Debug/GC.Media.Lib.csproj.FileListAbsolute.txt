@@ -1,0 +1,12 @@
+C:\Users\Artizani\Documents\Visual Studio 2010\Projects\Genesis\GC.Media.Lib\bin\Debug\GC.Media.Lib.dll
+C:\Users\Artizani\Documents\Visual Studio 2010\Projects\Genesis\GC.Media.Lib\bin\Debug\GC.Media.Lib.pdb
+C:\Users\Artizani\Documents\Visual Studio 2010\Projects\Genesis\GC.Media.Lib\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Artizani\Documents\Visual Studio 2010\Projects\Genesis\GC.Media.Lib\obj\Debug\GC.Media.Lib.dll
+C:\Users\Artizani\Documents\Visual Studio 2010\Projects\Genesis\GC.Media.Lib\obj\Debug\GC.Media.Lib.pdb
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\GC.Media.Lib\bin\Debug\GC.Media.Lib.dll
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\GC.Media.Lib\bin\Debug\GC.Media.Lib.pdb
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\GC.Media.Lib\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\GC.Media.Lib\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\GC.Media.Lib\obj\Debug\GC.Media.Lib.dll
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\GC.Media.Lib\obj\Debug\GC.Media.Lib.pdb
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\GC.Media.Lib\obj\Debug\GC.Media.Lib.csprojResolveAssemblyReference.cache

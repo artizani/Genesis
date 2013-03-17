@@ -1,0 +1,11 @@
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\Web.Library\bin\Web.Library.dll
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\Web.Library\bin\Web.Library.pdb
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\Web.Library\bin\EntityFramework.dll
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\Web.Library\bin\Newtonsoft.Json.dll
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\Web.Library\bin\SqlServer.dll
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\Web.Library\bin\SqlServer.pdb
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\Web.Library\bin\EntityFramework.xml
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\Web.Library\bin\Newtonsoft.Json.xml
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\Web.Library\obj\Release\Web.Library.csprojResolveAssemblyReference.cache
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\Web.Library\obj\Release\Web.Library.dll
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\Web.Library\obj\Release\Web.Library.pdb

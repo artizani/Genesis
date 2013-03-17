@@ -1,0 +1,8 @@
+C:\Users\Artizani\documents\visual studio 2010\Projects\Genesis\Loan\bin\Loan.dll
+C:\Users\Artizani\documents\visual studio 2010\Projects\Genesis\Loan\bin\Loan.pdb
+C:\Users\Artizani\documents\visual studio 2010\Projects\Genesis\Loan\bin\EntityFramework.xml
+C:\Users\Artizani\documents\visual studio 2010\Projects\Genesis\Loan\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Artizani\documents\visual studio 2010\Projects\Genesis\Loan\obj\Debug\Loan.dll
+C:\Users\Artizani\documents\visual studio 2010\Projects\Genesis\Loan\obj\Debug\Loan.pdb
+C:\Users\Artizani\documents\visual studio 2010\Projects\Genesis\Loan\bin\SqlServer.dll
+C:\Users\Artizani\documents\visual studio 2010\Projects\Genesis\Loan\bin\SqlServer.pdb

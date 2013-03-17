@@ -1,0 +1,6 @@
+c:\users\artizani\documents\visual studio 2010\Projects\Genesis\SqlServer\bin\Debug\SqlServer.dll.config
+c:\users\artizani\documents\visual studio 2010\Projects\Genesis\SqlServer\bin\Debug\SqlServer.dll
+c:\users\artizani\documents\visual studio 2010\Projects\Genesis\SqlServer\bin\Debug\SqlServer.pdb
+c:\users\artizani\documents\visual studio 2010\Projects\Genesis\SqlServer\obj\Debug\ResolveAssemblyReference.cache
+c:\users\artizani\documents\visual studio 2010\Projects\Genesis\SqlServer\obj\Debug\SqlServer.dll
+c:\users\artizani\documents\visual studio 2010\Projects\Genesis\SqlServer\obj\Debug\SqlServer.pdb

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<SqlServer.Loan>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+         <th>
+            ReturnDate
+        </th>
+        <th>
+            From
+        </th>
+        <th>
+            To
+        </th>
+      
+        <th>
+            ReturnIds
+        </th>
+        <th>
+            ReturnDate
+        </th>
+        <th>
+            Notes
+        </th>
+        <th>
+            LinkedLoanId
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+          <td>
+            @Html.DisplayFor(modelItem => item.ReturnDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.From)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.To)
+        </td>
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.ReturnIds)
+        </td>
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LinkedLoanId)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LoanId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LoanId }) |
+          
+        </td>
+    </tr>
+}
+
+</table>

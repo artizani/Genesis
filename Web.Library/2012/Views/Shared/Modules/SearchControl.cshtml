@@ -1,0 +1,23 @@
+﻿<form method="POST" action="@Href("~/Search/Query")">
+    <input type="hidden" name="redirectToUrl" value=""/>
+
+   @* @if(Context.Request.RawUrl.EndsWith("confirm-password-reset"))
+    {
+    <text>
+        <div class="confirmation">Your password has been successfully changed.</div>
+    </text>
+    <br/>
+    } else if(Model.IsLogginFailed)
+    {
+    <div class="confirmation">Failed to sign in.</div>
+    }*@
+    <div class="cont-field"><label for="email">Search: </label><input class="input" type="text" name="SearchTerm"
+                                                                             value=""
+                                                                             id="" autofocus
+                                                                             placeholder="Enter a Title Name"/>
+    </div>
+   
+    <div class="cont-forgot-credentials"><a href="@Href("~/password")">How to Query Titles</a></div>
+    <input type="submit" class="nav-sign-in" value="Search">
+    </form>
+    

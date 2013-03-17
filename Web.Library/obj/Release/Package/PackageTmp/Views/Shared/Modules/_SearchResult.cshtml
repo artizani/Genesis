@@ -1,0 +1,25 @@
+﻿@model Web.Library.BusinessLayer.Custom.JsonNetResult
+<script src="@Url.Content("~/Scripts/GC.js")" type="text/javascript"></script>
+
+<a class="nav-invite" href="#modInviteUser">Invite User</a>
+
+
+
+
+
+
+
+<div id="modDeleteUser">
+    <h2>Delete user</h2>
+    <form novalidate class="cont-inner" action="" method="post">
+        <section>
+            <p></p>
+            <input type="hidden" name="SsoUserId" id="ssoid_delete" value="">
+            <div class="cont-actions">
+                <input class="submit" type="submit" name="delete" value="Confirm"/>
+                <a href="#" class="nav-cancel">Cancel</a>
+               
+            </div>
+        </section>
+    </form>
+</div>

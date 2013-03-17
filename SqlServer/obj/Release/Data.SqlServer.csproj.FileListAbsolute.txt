@@ -1,0 +1,10 @@
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\SqlServer\bin\Release\SqlServer.dll.config
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\SqlServer\bin\Release\SqlServer.dll
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\SqlServer\bin\Release\SqlServer.pdb
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\SqlServer\bin\Release\EntityFramework.dll
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\SqlServer\bin\Release\Newtonsoft.Json.dll
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\SqlServer\bin\Release\EntityFramework.xml
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\SqlServer\bin\Release\Newtonsoft.Json.xml
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\SqlServer\obj\Release\Data.SqlServer.csprojResolveAssemblyReference.cache
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\SqlServer\obj\Release\SqlServer.dll
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\SqlServer\obj\Release\SqlServer.pdb

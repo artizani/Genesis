@@ -1,0 +1,12 @@
+C:\Users\Artizani\Documents\Visual Studio 2010\Projects\Genesis\LibraryService\bin\LibraryService.dll
+C:\Users\Artizani\Documents\Visual Studio 2010\Projects\Genesis\LibraryService\bin\LibraryService.pdb
+C:\Users\Artizani\Documents\Visual Studio 2010\Projects\Genesis\LibraryService\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Artizani\Documents\Visual Studio 2010\Projects\Genesis\LibraryService\obj\Debug\LibraryService.dll
+C:\Users\Artizani\Documents\Visual Studio 2010\Projects\Genesis\LibraryService\obj\Debug\LibraryService.pdb
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\LibraryService\bin\LibraryService.dll
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\LibraryService\bin\LibraryService.pdb
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\LibraryService\bin\Newtonsoft.Json.dll
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\LibraryService\bin\Newtonsoft.Json.xml
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\LibraryService\obj\Debug\LibraryService.dll
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\LibraryService\obj\Debug\LibraryService.pdb
+C:\Users\Artizani\Documents\Visual Studio 2012\Projects\Genesis\LibraryService\obj\Debug\LibraryService.csprojResolveAssemblyReference.cache

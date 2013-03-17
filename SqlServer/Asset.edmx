@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DevOnly.Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DevOnlyModelStoreContainer">
+          <EntitySet Name="Asset" EntityType="DevOnly.Model.Store.Asset" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Loan" EntityType="DevOnly.Model.Store.Loan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Loaned" EntityType="DevOnly.Model.Store.Loaned" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Member" EntityType="DevOnly.Model.Store.Member" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Loan_Loaned" Association="DevOnly.Model.Store.FK_Loan_Loaned">
+            <End Role="Loaned" EntitySet="Loaned" />
+            <End Role="Loan" EntitySet="Loan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Loan_Member" Association="DevOnly.Model.Store.FK_Loan_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Loan" EntitySet="Loan" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Asset">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="nchar" MaxLength="10" />
+          <Property Name="ISBN" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="AssetId" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Author" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Available" Type="bit" />
+        </EntityType>
+        <EntityType Name="Loan">
+          <Key>
+            <PropertyRef Name="LoanId" />
+          </Key>
+          <Property Name="LoanId" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="From" Type="datetime" />
+          <Property Name="To" Type="datetime" />
+          <Property Name="LoanedId" Type="uniqueidentifier" />
+          <Property Name="ReturnIds" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="ReturnDate" Type="datetime" Nullable="false" />
+          <Property Name="Notes" Type="varchar" Nullable="false" MaxLength="2000" />
+          <Property Name="LinkedLoanId" Type="varchar" MaxLength="100" />
+          <Property Name="MemberId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Loaned">
+          <Key>
+            <PropertyRef Name="LoanedId" />
+          </Key>
+          <Property Name="LoanedId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssetIdList" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="First" Type="int" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Role" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Secret" Type="nchar" Nullable="false" MaxLength="50" />
+          <Property Name="DOB" Type="varchar" MaxLength="50" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Loan_Loaned">
+          <End Role="Loaned" Type="DevOnly.Model.Store.Loaned" Multiplicity="0..1" />
+          <End Role="Loan" Type="DevOnly.Model.Store.Loan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Loaned">
+              <PropertyRef Name="LoanedId" />
+            </Principal>
+            <Dependent Role="Loan">
+              <PropertyRef Name="LoanedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Loan_Member">
+          <End Role="Member" Type="DevOnly.Model.Store.Member" Multiplicity="1" />
+          <End Role="Loan" Type="DevOnly.Model.Store.Loan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Loan">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DevOnly.Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DevOnlyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Loan" EntityType="DevOnly.Model.Loan" />
+          <EntitySet Name="Loaned" EntityType="DevOnly.Model.Loaned" />
+          <EntitySet Name="Member" EntityType="DevOnly.Model.Member" />
+          <AssociationSet Name="FK_Loan_Loaned" Association="DevOnly.Model.FK_Loan_Loaned">
+            <End Role="Loaned" EntitySet="Loaned" />
+            <End Role="Loan" EntitySet="Loan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Loan_Member" Association="DevOnly.Model.FK_Loan_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Loan" EntitySet="Loan" />
+          </AssociationSet>
+          <EntitySet Name="Asset" EntityType="DevOnly.Model.Asset" />
+        </EntityContainer>
+        <EntityType Name="Loan">
+          <Key>
+            <PropertyRef Name="LoanId" />
+          </Key>
+          <Property Type="String" Name="LoanId" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="From" Precision="3" />
+          <Property Type="DateTime" Name="To" Precision="3" />
+          <Property Type="Guid" Name="LoanedId" />
+          <Property Type="String" Name="ReturnIds" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ReturnDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Notes" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LinkedLoanId" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Guid" Name="MemberId" Nullable="false" />
+          <NavigationProperty Name="Loaned" Relationship="DevOnly.Model.FK_Loan_Loaned" FromRole="Loan" ToRole="Loaned" />
+          <NavigationProperty Name="Member" Relationship="DevOnly.Model.FK_Loan_Member" FromRole="Loan" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="Loaned">
+          <Key>
+            <PropertyRef Name="LoanedId" />
+          </Key>
+          <Property Type="Guid" Name="LoanedId" Nullable="false" />
+          <Property Type="String" Name="AssetIdList" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="First" />
+          <NavigationProperty Name="Loan" Relationship="DevOnly.Model.FK_Loan_Loaned" FromRole="Loaned" ToRole="Loan" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="String" Name="Role" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Secret" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="DOB" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <NavigationProperty Name="Loan" Relationship="DevOnly.Model.FK_Loan_Member" FromRole="Member" ToRole="Loan" />
+        </EntityType>
+        <Association Name="FK_Loan_Loaned">
+          <End Type="DevOnly.Model.Loaned" Role="Loaned" Multiplicity="0..1" />
+          <End Type="DevOnly.Model.Loan" Role="Loan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Loaned">
+              <PropertyRef Name="LoanedId" />
+            </Principal>
+            <Dependent Role="Loan">
+              <PropertyRef Name="LoanedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Loan_Member">
+          <End Type="DevOnly.Model.Member" Role="Member" Multiplicity="1" />
+          <End Type="DevOnly.Model.Loan" Role="Loan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Loan">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Asset">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="ISBN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AssetId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Author" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Boolean" Name="Available" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DevOnlyModelStoreContainer" CdmEntityContainer="DevOnlyEntities">
+          <EntitySetMapping Name="Loan">
+            <EntityTypeMapping TypeName="DevOnly.Model.Loan">
+              <MappingFragment StoreEntitySet="Loan">
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="LinkedLoanId" ColumnName="LinkedLoanId" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+                <ScalarProperty Name="ReturnIds" ColumnName="ReturnIds" />
+                <ScalarProperty Name="LoanedId" ColumnName="LoanedId" />
+                <ScalarProperty Name="To" ColumnName="To" />
+                <ScalarProperty Name="From" ColumnName="From" />
+                <ScalarProperty Name="LoanId" ColumnName="LoanId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Loaned">
+            <EntityTypeMapping TypeName="DevOnly.Model.Loaned">
+              <MappingFragment StoreEntitySet="Loaned">
+                <ScalarProperty Name="First" ColumnName="First" />
+                <ScalarProperty Name="AssetIdList" ColumnName="AssetIdList" />
+                <ScalarProperty Name="LoanedId" ColumnName="LoanedId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Member">
+            <EntityTypeMapping TypeName="DevOnly.Model.Member">
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Secret" ColumnName="Secret" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Asset">
+            <EntityTypeMapping TypeName="DevOnly.Model.Asset">
+              <MappingFragment StoreEntitySet="Asset">
+                <ScalarProperty Name="Available" ColumnName="Available" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Asset">
+        <EntityTypeShape EntityType="DevOnly.Model.Loan" Width="1.5" PointX="3" PointY="1" Height="3.1340950520833353" />
+        <EntityTypeShape EntityType="DevOnly.Model.Loaned" Width="1.5" PointX="0.75" PointY="1.625" Height="1.787985026041671" />
+        <EntityTypeShape EntityType="DevOnly.Model.Member" Width="1.5" PointX="0.75" PointY="5.125" Height="2.7494921875000031" />
+        <AssociationConnector Association="DevOnly.Model.FK_Loan_Loaned" >
+          <ConnectorPoint PointX="2.25" PointY="2.5189925130208355" />
+          <ConnectorPoint PointX="3" PointY="2.5189925130208355" />
+        </AssociationConnector>
+        <AssociationConnector Association="DevOnly.Model.FK_Loan_Member" >
+          <ConnectorPoint PointX="2.25" PointY="6.4997460937500016" />
+          <ConnectorPoint PointX="3.75" PointY="6.4997460937500016" />
+          <ConnectorPoint PointX="3.75" PointY="4.1340950520833353" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DevOnly.Model.Asset" Width="1.5" PointX="5.375" PointY="0.75" Height="2.5571907552083335" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

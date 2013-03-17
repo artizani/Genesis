@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DevOnly.Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="DevOnlyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Loan" EntityType="DevOnly.Model.Loan" />
+    <EntitySet Name="Loaned" EntityType="DevOnly.Model.Loaned" />
+    <EntitySet Name="Member" EntityType="DevOnly.Model.Member" />
+    <AssociationSet Name="FK_Loan_Loaned" Association="DevOnly.Model.FK_Loan_Loaned">
+      <End Role="Loaned" EntitySet="Loaned" />
+      <End Role="Loan" EntitySet="Loan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Loan_Member" Association="DevOnly.Model.FK_Loan_Member">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="Loan" EntitySet="Loan" />
+    </AssociationSet>
+    <EntitySet Name="Asset" EntityType="DevOnly.Model.Asset" />
+  </EntityContainer>
+  <EntityType Name="Loan">
+    <Key>
+      <PropertyRef Name="LoanId" />
+    </Key>
+    <Property Type="String" Name="LoanId" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="From" Precision="3" />
+    <Property Type="DateTime" Name="To" Precision="3" />
+    <Property Type="Guid" Name="LoanedId" />
+    <Property Type="String" Name="ReturnIds" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="ReturnDate" Nullable="false" Precision="3" />
+    <Property Type="String" Name="Notes" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LinkedLoanId" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Guid" Name="MemberId" Nullable="false" />
+    <NavigationProperty Name="Loaned" Relationship="DevOnly.Model.FK_Loan_Loaned" FromRole="Loan" ToRole="Loaned" />
+    <NavigationProperty Name="Member" Relationship="DevOnly.Model.FK_Loan_Member" FromRole="Loan" ToRole="Member" />
+  </EntityType>
+  <EntityType Name="Loaned">
+    <Key>
+      <PropertyRef Name="LoanedId" />
+    </Key>
+    <Property Type="Guid" Name="LoanedId" Nullable="false" />
+    <Property Type="String" Name="AssetIdList" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="First" />
+    <NavigationProperty Name="Loan" Relationship="DevOnly.Model.FK_Loan_Loaned" FromRole="Loaned" ToRole="Loan" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Role" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Secret" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="DOB" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <NavigationProperty Name="Loan" Relationship="DevOnly.Model.FK_Loan_Member" FromRole="Member" ToRole="Loan" />
+  </EntityType>
+  <Association Name="FK_Loan_Loaned">
+    <End Type="DevOnly.Model.Loaned" Role="Loaned" Multiplicity="0..1" />
+    <End Type="DevOnly.Model.Loan" Role="Loan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Loaned">
+        <PropertyRef Name="LoanedId" />
+      </Principal>
+      <Dependent Role="Loan">
+        <PropertyRef Name="LoanedId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Loan_Member">
+    <End Type="DevOnly.Model.Member" Role="Member" Multiplicity="1" />
+    <End Type="DevOnly.Model.Loan" Role="Loan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Loan">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Asset">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Title" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="ISBN" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="AssetId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Author" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Boolean" Name="Available" />
+  </EntityType>
+</Schema>
